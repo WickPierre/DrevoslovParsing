@@ -80,7 +80,7 @@ def parse_dictionary():
             break
 
     # Сохранить в JSON
-    with open("dictionary.json", "w", encoding="utf-8") as f:
+    with open("../dictionary.json", "w", encoding="utf-8") as f:
         json.dump(all_data, f, ensure_ascii=False, indent=2)
 
     driver.quit()

@@ -26,7 +26,7 @@ def join_jsons(articles, trees):
         new_data.append(entry)
 
     # Сохранить в JSON
-    with open("new_parsed_articles.json", "w", encoding="utf-8") as f:
+    with open("../new_parsed_articles.json", "w", encoding="utf-8") as f:
         json.dump(new_data, f, ensure_ascii=False, indent=2)
 
     print('Успешно!')
@@ -39,7 +39,7 @@ def parse_and_union_trees_and_articles():
     driver = webdriver.Chrome(options=options)
 
     # Загрузка исходного JSON
-    with open('parsed_articles.json', 'r', encoding='utf-8') as f:
+    with open('../parsed_articles.json', 'r', encoding='utf-8') as f:
         raw_data = json.load(f)
 
     raw_trees = list(set(i.get("tree_link", "") for i in raw_data))
@@ -60,7 +60,7 @@ def parse_and_union_trees_and_articles():
         c += 1
 
     # Сохранить в JSON
-    with open("trees.json", "w", encoding="utf-8") as f:
+    with open("../trees.json", "w", encoding="utf-8") as f:
         json.dump(trees, f, ensure_ascii=False, indent=2)
 
     driver.quit()

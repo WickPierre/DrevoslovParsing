@@ -54,7 +54,7 @@ def parse_article(html):
 
 def parse_all_articles():
     # Загрузка данных
-    with open('dictionary.json', 'r', encoding='utf-8') as f:
+    with open('../dictionary.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     # Обработка всех статей
@@ -64,7 +64,7 @@ def parse_all_articles():
         parsed_data.append(parsed)
 
     # Сохранение результата
-    with open('parsed_articles.json', 'w', encoding='utf-8') as f:
+    with open('../parsed_articles.json', 'w', encoding='utf-8') as f:
         json.dump(parsed_data, f, ensure_ascii=False, indent=2)
 
     print('Обработано статей:', len(parsed_data))

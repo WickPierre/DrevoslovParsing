@@ -19,7 +19,7 @@ def get_img_of_trees():
         "Accept-Language": "en-US,en;q=0.9",
     }
 
-    with open('trees.json', 'r', encoding='utf-8') as f:
+    with open('../trees.json', 'r', encoding='utf-8') as f:
         trees = json.load(f)
 
     for tree in trees:
