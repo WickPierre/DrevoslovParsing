@@ -26,7 +26,7 @@ def get_img_of_trees():
         print('✅' if tree['tree_img'] else '❌', tree['tree_title'])
         if tree['tree_img']:
             img_data = requests.get(tree['tree_img'], headers=headers, cookies=cookies).content
-            with open('trees/' + tree['img_name'], 'wb') as handler:
+            with open('../tree_images/' + tree['img_name'], 'wb') as handler:
                 handler.write(img_data)
 
     print('Успешно!')

@@ -9,7 +9,7 @@ def get_html(link, driver):
     com_glossary = driver.find_element(By.ID, "com_glossary")
     title = com_glossary.find_element(By.TAG_NAME, "h1").text
     if 'class=\"cloud-zoom\"' in com_glossary.get_attribute("outerHTML"):
-        tree_link = com_glossary.find_element(By.CLASS_NAME, "cloud-zoom").get_attribute("href")
+        tree_link = com_glossary.find_element(By.TAG_NAME, "img").get_attribute("src")
     else:
         tree_link = None
 
@@ -20,7 +20,7 @@ def join_jsons(articles, trees):
     new_data = []
 
     for entry in articles:
-        tree_title, tree_img = [(tree['tree_title'], tree['tree_img']) for tree in trees if tree['tree_link'] == entry['tree_link']][0]
+        tree_title, tree_img = [(tree['tree_title'], tree['img_name']) for tree in trees if tree['tree_link'] == entry['tree_link']][0]
         entry['tree_title'], entry['tree_img'] = tree_title, tree_img
 
         new_data.append(entry)
